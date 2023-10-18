@@ -1,11 +1,15 @@
 import { MainStyled } from './Styled/MainStyled';
 import ButtonBox from '../components/ButtonBox/ButtonBox';
 import Form from '../components/Form/Form';
+import ToggleColorModeButton from '../components/ToggleColorModeButton/ToggleColorModeButton';
 
-const Main = () => (
+import { MainProps } from '../Types';
+
+const Main = ({ handleToggleDarkMode, handleColorChange }: MainProps) => (
   <MainStyled>
     <ButtonBox />
-    <Form />
+    <Form handleColorChange={handleColorChange} />
+    <ToggleColorModeButton handleToggleDarkMode={handleToggleDarkMode} />
   </MainStyled>
 );
 

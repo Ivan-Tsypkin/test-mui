@@ -1,4 +1,6 @@
-/* eslint-disable import/prefer-default-export */
 import IconProps from './IconProps';
+import MainProps from './MainProps';
+import ToggleColorModeButtonProps from './ToggleColorModeButtonProps';
+import FormProps from './FormProps';
 
-export type { IconProps };
+export type { IconProps, MainProps, ToggleColorModeButtonProps, FormProps };
