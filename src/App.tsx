@@ -1,17 +1,25 @@
-// import { useState } from 'react';
 import styled from 'styled-components';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+
+import Main from './pages/Main';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const App = () => {
-  // const [count, setCount] = useState(0);
-
   console.log('test');
 
-  return <Container>hi</Container>;
+  return (
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Container>
+        <Main />
+      </Container>
+    </LocalizationProvider>
+  );
 };
 
 export default App;
