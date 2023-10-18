@@ -7,6 +7,7 @@ import {
   FormControl,
   Typography,
   Box,
+  Slider,
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -15,7 +16,7 @@ import { ColorPicker } from 'antd';
 import { FormStyled } from './Styled/FormStyled';
 import { FormProps } from '../../Types';
 
-const Form = ({ handleColorChange }: FormProps) => {
+const Form = ({ handleColorChange, handleBorderRadiusChange }: FormProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = () => {
     setIsLoading((prev) => !prev);
@@ -51,6 +52,26 @@ const Form = ({ handleColorChange }: FormProps) => {
       >
         <ColorPicker size='large' showText onChangeComplete={handleColorChange} />
         <Typography>Primary color</Typography>
+      </Box>
+
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '10px',
+          alignItems: 'center',
+          alignSelf: 'start',
+          width: '100%',
+        }}
+      >
+        <Slider
+          max={50}
+          min={0}
+          valueLabelDisplay='auto'
+          onChangeCommitted={handleBorderRadiusChange}
+        />
+        <Typography noWrap flexShrink={0}>
+          Border radius
+        </Typography>
       </Box>
     </FormStyled>
   );

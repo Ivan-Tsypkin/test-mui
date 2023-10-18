@@ -5,7 +5,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Color } from 'antd/es/color-picker';
-import { DEFAULT_PRAIMARY_COLOR } from './utils/constants';
+import { DEFAULT_PRAIMARY_COLOR, DEFAULT_BORDER_RADIUS } from './utils/constants';
 
 import Main from './pages/Main';
 
@@ -18,6 +18,7 @@ const Container = styled.div`
 const App = () => {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
   const [pickedColor, setPickedColor] = useState(DEFAULT_PRAIMARY_COLOR);
+  const [borderRadius, setBorderRadius] = useState(DEFAULT_BORDER_RADIUS);
 
   console.log('render');
 
@@ -31,6 +32,17 @@ const App = () => {
     setPickedColor(hexColor);
   };
 
+  const handleBorderRadiusChange = (
+    _event: React.SyntheticEvent | Event,
+    value: number | Array<number>,
+  ) => {
+    // console.log(event);
+    // console.log(value);
+    const isNumber = typeof value === 'number';
+
+    if (isNumber) setBorderRadius(value);
+  };
+
   const theme = useMemo(
     () =>
       createTheme({
@@ -40,8 +52,11 @@ const App = () => {
             main: pickedColor,
           },
         },
+        shape: {
+          borderRadius,
+        },
       }),
-    [mode, pickedColor],
+    [mode, pickedColor, borderRadius],
   );
 
   return (
@@ -49,7 +64,11 @@ const App = () => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <Container>
           <CssBaseline />
-          <Main handleToggleDarkMode={handleToggleDarkMode} handleColorChange={handleColorChange} />
+          <Main
+            handleToggleDarkMode={handleToggleDarkMode}
+            handleColorChange={handleColorChange}
+            handleBorderRadiusChange={handleBorderRadiusChange}
+          />
         </Container>
       </LocalizationProvider>
     </ThemeProvider>

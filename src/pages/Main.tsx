@@ -5,10 +5,13 @@ import ToggleColorModeButton from '../components/ToggleColorModeButton/ToggleCol
 
 import { MainProps } from '../Types';
 
-const Main = ({ handleToggleDarkMode, handleColorChange }: MainProps) => (
+const Main = ({ handleToggleDarkMode, handleColorChange, handleBorderRadiusChange }: MainProps) => (
   <MainStyled>
     <ButtonBox />
-    <Form handleColorChange={handleColorChange} />
+    <Form
+      handleColorChange={handleColorChange}
+      handleBorderRadiusChange={handleBorderRadiusChange}
+    />
     <ToggleColorModeButton handleToggleDarkMode={handleToggleDarkMode} />
   </MainStyled>
 );
