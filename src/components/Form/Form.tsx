@@ -28,11 +28,11 @@ const Form = ({ handleColorChange, handleBorderRadiusChange }: FormProps) => {
       <TextField label='Фамилия' variant='outlined' fullWidth />
 
       <FormControl fullWidth>
-        <InputLabel id='pats-select-label'>Домашнее животное</InputLabel>
-        <Select labelId='pats-select-label' id='pats-select' label='Домашнее животное' fullWidth>
-          <MenuItem value='Кошка'>Кошка</MenuItem>
-          <MenuItem value='Собака'>Собака</MenuItem>
-          <MenuItem value='Все'>Все</MenuItem>
+        <InputLabel id='pats-select-label'>Что лучше?</InputLabel>
+        <Select labelId='pats-select-label' id='pats-select' label='Что лучше?' fullWidth>
+          <MenuItem value='Мерседес'>Мерседес</MenuItem>
+          <MenuItem value='БМВ'>БМВ</MenuItem>
+          <MenuItem value='Москвич'>Москвич</MenuItem>
         </Select>
       </FormControl>
 
