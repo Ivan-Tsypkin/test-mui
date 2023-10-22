@@ -17,9 +17,10 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: deps-${{ hashFiles('**/package-lock.json') }}
+          key: npm-${{ hashFiles('**/package-lock.json') }}
       - name: Install deps
-        run: npm ci
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
       - name: Test app
         run: npm run test
       - name: Lint code
