@@ -1,4 +1,4 @@
-name: Build-Lint-Test
+name: Lint-Test-Build
 on:
   push:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
       - reopened
       - edited
 jobs:
-  lint:
+  lint-test-build:
     runs-on: ubuntu-20.04
     steps:
       - name: Get rep code
@@ -20,10 +20,10 @@ jobs:
           key: npm-deps-${{ hashFiles('**/package-lock.json') }}
       - name: Install deps
         run: npm ci
-      - name: Test app
-        run: npm run test
       - name: Lint code
         run: npm run lint
+      - name: Test app
+        run: npm run test
       - name: Build app
         run: npm run build
       - name: Deploy app
