@@ -60,7 +60,7 @@ const App = () => {
     [mode, pickedColor, borderRadius],
   );
 
-  sum(1, 5);
+  sum(1, 6);
 
   return (
     <ThemeProvider theme={theme}>
