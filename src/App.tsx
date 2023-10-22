@@ -6,6 +6,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Color } from 'antd/es/color-picker';
 import { DEFAULT_PRAIMARY_COLOR, DEFAULT_BORDER_RADIUS } from './utils/constants';
+import sum from './helpers/sum';
 
 import Main from './pages/Main';
 
@@ -58,6 +59,8 @@ const App = () => {
       }),
     [mode, pickedColor, borderRadius],
   );
+
+  sum(1, 2);
 
   return (
     <ThemeProvider theme={theme}>
