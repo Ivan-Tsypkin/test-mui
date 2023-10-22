@@ -20,7 +20,7 @@ const App = () => {
   const [pickedColor, setPickedColor] = useState(DEFAULT_PRAIMARY_COLOR);
   const [borderRadius, setBorderRadius] = useState(DEFAULT_BORDER_RADIUS);
 
-  console.log('render');
+  // console.log('render');
 
   const handleToggleDarkMode = () => {
     setMode((prev) => (prev === 'light' ? 'dark' : 'light'));
